@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthyPool.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,10"
+            VerticalOptions="Start" HorizontalOptions="Fill">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Text="Pools"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="FillAndExpand" />
+                
+                <Button
+                    x:Name="CounterBtn"
+                    Grid.Column="1"
+                    Text="+"
+                    FontSize="18"
+                    SemanticProperties.Hint="Adds a New Pool"
+                    HorizontalOptions="Center" />
+            </Grid>
+
+            <ListView ItemsSource="{Binding Pools}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <HorizontalStackLayout>
+                                    <Label FontSize="16" VerticalOptions="Center" Text="{Binding Name}"></Label>
+                                </HorizontalStackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
